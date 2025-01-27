@@ -1,0 +1,68 @@
+# Flutter & Dart specific
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.package-config.json
+.packages
+
+# Build outputs
+build/
+*.apk
+*.aab
+*.ipa
+
+# iOS
+ios/Flutter/.last_build_id
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Pods/
+ios/Podfile.lock
+
+# Android
+.android/
+*.iml
+android/app/debug.keystore
+
+# Web
+web/.dart_tool/
+web/manifest.json
+
+# macOS
+macos/Flutter/ephemeral/
+macos/Pods/
+macos/Podfile.lock
+
+# Windows
+windows/flutter/ephemeral/
+
+# Linux
+linux/flutter/ephemeral/
+
+# Firebase
+*.firebase/
+
+# IDE files
+.idea/
+*.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+*.DS_Store
+*.lock
+
+# IntelliJ / Android Studio
+*.iml
+.gradle/
+.local/
+
+# JetBrains IDEs
+.idea/
+*.iml
