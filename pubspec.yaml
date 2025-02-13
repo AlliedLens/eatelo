@@ -1,0 +1,51 @@
+name: eatelo
+description: "A new Flutter project."
+
+# Prevents accidental publishing to pub.dev
+publish_to: 'none'
+
+# App versioning (major.minor.patch+build)
+version: 1.0.0+1
+
+# Flutter SDK version compatibility
+environment:
+  sdk: ">=3.5.4 <4.0.0"
+
+# Dependencies for Flutter and other packages
+dependencies:
+  flutter:
+    sdk: flutter
+  image_picker: ^1.1.2
+  google_fonts: ^6.1.0
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+# Flutter-specific configurations
+flutter:
+  uses-material-design: true
+
+  # Assets section for images and fonts
+  assets:
+    - assets/fonts/RedHatDisplay-Regular.ttf
+    - assets/fonts/RedHatDisplay-Bold.ttf
+    - assets/fonts/RedHatDisplay-Medium.ttf
+    - assets/fonts/RedHatDisplay-Light.ttf
+    - assets/google_logo.png
+    - assets/instagram_logo.png 
+
+
+  # Font configuration for "Red Hat Display"
+  fonts:
+    - family: RedHatDisplay
+      fonts:
+        - asset: assets/fonts/RedHatDisplay-Regular.ttf
+        - asset: assets/fonts/RedHatDisplay-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/RedHatDisplay-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/RedHatDisplay-Light.ttf
+          weight: 300
