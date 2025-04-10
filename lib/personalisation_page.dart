@@ -69,6 +69,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
           Expanded(
             child: PageView(
               controller: _pageController,
+              physics: const ClampingScrollPhysics(),
               onPageChanged: (int page) {
                 setState(() {
                   _currentPage = page;
@@ -158,10 +159,19 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const RankingPage()),
-                        );
+                        if (_currentPage < 2) {
+                          // Move to next page with animation
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                          );
+                        } else {
+                          // On last page, navigate to ranking page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const RankingPage()),
+                          );
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
