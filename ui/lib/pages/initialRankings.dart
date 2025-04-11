@@ -5,6 +5,7 @@ class InitialRankingPage extends StatefulWidget {
 
   @override
   _InitialRankingPageState createState() => _InitialRankingPageState();
+  
 }
 
 class _InitialRankingPageState extends State<InitialRankingPage> {
@@ -21,6 +22,7 @@ class _InitialRankingPageState extends State<InitialRankingPage> {
     'Taco Bell',
     'Wendy\'s'
   ];
+
   List<String> filteredRestaurants = [];
   List<String> rankedRestaurants = [];
 
