@@ -57,12 +57,14 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
         children: [
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: const Text(
-              'Personalise Your Profile',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                fontFamily: "RedHatDisplay",
+            child: const Center(
+              child: Text(
+                'Personalise Your Profile',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "RedHatDisplay",
+                ),
               ),
             ),
           ),
@@ -78,7 +80,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
               children: [
                 // Dietary Preferences Card
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: _buildPreferenceCard(
                     title: 'Select your dietary preferences:',
                     children: [
@@ -89,13 +91,13 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                       _buildChoiceButton('Halal', _selectedDietaryPreference),
                       _buildChoiceButton('Keto-Friendly', _selectedDietaryPreference),
                       _buildChoiceButton('No Food Left Behind!', _selectedDietaryPreference),
-                      _buildChoiceButton('Custom +', _selectedDietaryPreference),
+                      _buildChoiceButton('Non vegetarian', _selectedDietaryPreference),
                     ],
                   ),
                 ),
                 // Dining Style Card
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: _buildPreferenceCard(
                     title: 'Your dining style:',
                     children: [
@@ -107,13 +109,13 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                       _buildChoiceButton('Fine Dining Enthusiast', _selectedDiningStyle),
                       _buildChoiceButton('Coffee Over Everything', _selectedDiningStyle),
                       _buildChoiceButton('Wine & Dine Fan', _selectedDiningStyle),
-                      _buildChoiceButton('Custom +', _selectedDiningStyle),
+                    
                     ],
                   ),
                 ),
                 // Review Style Card
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: _buildPreferenceCard(
                     title: 'Your review style:',
                     children: [
@@ -124,7 +126,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                       _buildChoiceButton('Casual Reviewer', _selectedReviewStyle),
                       _buildChoiceButton('Loyal Customer', _selectedReviewStyle),
                       _buildChoiceButton('Video Reviewer', _selectedReviewStyle),
-                      _buildChoiceButton('Custom +', _selectedReviewStyle),
+                    
                     ],
                   ),
                 ),
@@ -211,10 +213,18 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
   // Helper method to create a preference card
   Widget _buildPreferenceCard({required String title, required List<Widget> children}) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(255, 153, 144, 144),
-        borderRadius: BorderRadius.circular(10),
+        color: const Color(0xFFD9D9D9),
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: const Offset(0, 3),
+          ),
+        ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -222,12 +232,13 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w500,
-              color: Colors.black87,
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontFamily: "RedHatDisplay",
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 16),
           Wrap(
             spacing: 12.0,
             runSpacing: 12.0,
@@ -267,10 +278,10 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
       style: ElevatedButton.styleFrom(
         backgroundColor: isSelected ? const Color(0xFF990000) : Color(0xFFFFEFD5),
         foregroundColor: isSelected ? Color(0xFFFFEFD5) : Colors.black,
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 14.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
         elevation: 2,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(12),
           side: BorderSide(
             color: isSelected ? const Color(0xFF990000) : Colors.black.withOpacity(0.8),
             width: 1.5,
