@@ -12,7 +12,7 @@ class GetStartedPage extends StatelessWidget {
 
           // Eatelo Logo
           Image.asset(
-            "assets/images/eatelo_logo.png", // Ensure this path is correct
+            "assets/eatelo_logo.png",
             height: 50,
           ),
           SizedBox(height: 20),

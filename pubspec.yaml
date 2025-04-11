@@ -36,6 +36,8 @@ flutter:
     - assets/fonts/RedHatDisplay-Light.ttf
     - assets/google_logo.png
     - assets/instagram_logo.png 
+    - assets/eatelo_logo.png
+    - assets/trophy.png
 
 
   # Font configuration for "Red Hat Display"

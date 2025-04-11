@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),
                     child: Image.asset(
-                      "assets/images/eatelo_logo.png", // Ensure this matches the correct path
+                      "assets/eatelo_logo.png", // Ensure this matches the correct path
                       height: 50, // Adjust size as needed
                     ),
                   ),

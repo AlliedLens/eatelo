@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'preferences_page.dart';
 
 class SignUpPage extends StatelessWidget {
   @override
@@ -69,7 +70,11 @@ class SignUpPage extends StatelessWidget {
                       // Sign Up Button
                       ElevatedButton(
                         onPressed: () {
-                          // Handle sign-up logic here
+                          // Navigate to preferences page
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const PreferencesPage()),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF990000),
