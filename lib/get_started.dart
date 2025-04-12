@@ -4,21 +4,21 @@ class GetStartedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEFD5), // Background color from Figma
+      backgroundColor: const  Color(0xFFFFEFD5), // Background color from Figma
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(height: 80),
+          const SizedBox(height: 80),
 
           // Eatelo Logo
           Image.asset(
             "assets/eatelo_logo.png",
             height: 50,
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           // Title
-          Text(
+          const Text(
             "Restaurant Reviews Reinvented",
             style: TextStyle(
               fontFamily: "RedHatDisplay",
@@ -28,14 +28,14 @@ class GetStartedPage extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 60),
+          const SizedBox(height: 60),
 
           // Placeholder for Image Element
           Container(
             height: 200, // Adjust height as needed
             width: double.infinity,
             color: Colors.transparent, // Set this to an image later
-            child: Center(
+            child: const Center(
               child: Text(
                 "Image Element",
                 style: TextStyle(
@@ -47,13 +47,13 @@ class GetStartedPage extends StatelessWidget {
             ),
           ),
 
-          Spacer(),
+          const Spacer(),
 
           // Bottom Section with Gradient
           Container(
             width: double.infinity,
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
+            padding: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -69,7 +69,7 @@ class GetStartedPage extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Text(
+                const Text(
                   "Get Started",
                   style: TextStyle(
                     fontFamily: "RedHatDisplay",
@@ -79,19 +79,19 @@ class GetStartedPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 // Sign In Button
                 ElevatedButton(
                   onPressed: () => Navigator.pushNamed(context, '/login'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF5E0B15), // Adjusted button color
+                    backgroundColor: const Color(0xFF5E0B15), // Adjusted button color
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 12, horizontal: 50),
+                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 50),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Sign in",
                     style: TextStyle(
                       fontFamily: "RedHatDisplay",
@@ -101,19 +101,19 @@ class GetStartedPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 10),
+               const SizedBox(height: 10),
 
                 // Create Account Button
                 ElevatedButton(
                   onPressed: () => Navigator.pushNamed(context, '/signup'),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFFEFD5),
+                    backgroundColor: const Color(0xFFFFEFD5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    padding: EdgeInsets.symmetric(vertical: 12, horizontal: 40),
+                    padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 40),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Create new account",
                     style: TextStyle(
                       fontFamily: "RedHatDisplay",

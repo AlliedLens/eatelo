@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1031824783350",
+    "project_id": "eatelo-auth",
+    "storage_bucket": "eatelo-auth.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031824783350:android:f2614b952f8e470e6439d7",
+        "android_client_info": {
+          "package_name": "com.example.eatelo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKQkBkR1N_P0pLq5-YGKOSfeOM5GGykf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
