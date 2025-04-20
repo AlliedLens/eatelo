@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'eatelo-auth.firebasestorage.app',
     measurementId: 'G-5SM2Y316Q8',
   );
+
 }

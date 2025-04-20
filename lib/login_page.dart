@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFCECDD), // Background color from Figma
+      backgroundColor: const Color(0xFFFCECDD), // Background color from Figma
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -26,9 +27,9 @@ class LoginPage extends StatelessWidget {
 
                 // Sign In Card
                 Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
@@ -40,7 +41,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Text(
+                      const Text(
                         "Sign in",
                         style: TextStyle(
                           fontFamily: "RedHatDisplay",
@@ -49,11 +50,11 @@ class LoginPage extends StatelessWidget {
                           color: Color(0xFFFFEFD5),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
                       // Input Fields
                       _buildInputField("Email"),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       _buildInputField("Password", isPassword: true),
 
                       // Forgot Password
@@ -61,7 +62,7 @@ class LoginPage extends StatelessWidget {
                         alignment: Alignment.centerRight,
                         child: TextButton(
                           onPressed: () {},
-                          child: Text(
+                          child: const Text(
                             "Forgot Password?",
                             style: TextStyle(
                               color: Color(0xFFFFEFD5),
@@ -70,30 +71,30 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
 
                       // Sign In Button
                       ElevatedButton(
                         onPressed: () => Navigator.pushNamed(context, '/home'),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFFEFD5),
+                          backgroundColor: const Color(0xFFFFEFD5),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 50),
+                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 50),
                         ),
-                        child: Text(
+                        child: const Text(
                           "Sign in",
                           style: TextStyle(fontSize: 18, color: Color(0xFF990000)),
                         ),
                       ),
 
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
 
                       // Sign Up Navigation
                       TextButton(
                         onPressed: () => Navigator.pushNamed(context, '/signup'),
-                        child: Text(
+                        child: const Text(
                           "First time Eatelo? Sign Up",
                           style: TextStyle(
                             fontFamily: "RedHatDisplay",
@@ -106,10 +107,10 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 // "Restaurant Reviews Reinvented"
-                Text(
+                const Text(
                   "Restaurant Reviews Reinvented",
                   style: TextStyle(
                     fontFamily: "RedHatDisplay",
@@ -119,11 +120,11 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 // Social Login Buttons
                 _buildSocialButton("assets/google_logo.png", "Continue with Google"),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 _buildSocialButton("assets/instagram_logo.png", "Continue with Instagram"),
               ],
             ),
@@ -139,9 +140,9 @@ class LoginPage extends StatelessWidget {
       obscureText: isPassword,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(0xFFFCECDD),
+        fillColor: const Color(0xFFFCECDD),
         hintText: hint,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           fontFamily: "RedHatDisplay",
           fontSize: 14,
           color: Colors.black54,
@@ -169,10 +170,10 @@ class LoginPage extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Image.asset(assetPath, height: 24), // Logo
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               fontFamily: "RedHatDisplay",
               color: Colors.black,
               fontSize: 14,
