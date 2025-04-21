@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'profile_page.dart';
 
 class PreferencesPage extends StatefulWidget {
-  const PreferencesPage({super.key});
+  final String username='';
+  final String email='';
+  final String password='';
+
+  const PreferencesPage({super.key, String username='', String email='', String password=''});
 
   @override
   State<PreferencesPage> createState() => _PreferencesPageState();
 }
 
 class _PreferencesPageState extends State<PreferencesPage> {
-  // Track selected preferences
   final Set<String> _selectedPreferences = {};
 
   @override
@@ -137,10 +140,10 @@ class _PreferencesPageState extends State<PreferencesPage> {
     return ElevatedButton(
       onPressed: () {
         setState(() {
-          // Toggle selection
           if (isSelected) {
             _selectedPreferences.remove(label);
           } else {
+            if (_selectedPreferences.length >= 3) return;
             _selectedPreferences.add(label);
           }
         });

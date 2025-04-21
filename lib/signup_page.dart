@@ -1,151 +1,162 @@
+import 'package:eatelo/pages/loginPage.dart';
 import 'package:flutter/material.dart';
 import 'preferences_page.dart';
+import 'constants/app_colors.dart';
+import 'constants/app_fonts.dart';
 
-class SignUpPage extends StatelessWidget {
+
+class SignUpPage extends StatefulWidget{
+  
+  @override
+  State<SignUpPage> createState() => _SignUpPage();
+}
+
+class _SignUpPage extends State<SignUpPage> {
+
+  final usernameController = TextEditingController();  
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFEFD5), // Corrected background color from Figma
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Eatelo Logo
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 20),
-                    child: Text(
-                      "eatelo!",
-                      style: TextStyle(
-                        fontFamily: "RedHatDisplay",
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
+      backgroundColor: AppColors.background, 
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+
+              const SizedBox(height: 20,),
+
+              Image.asset(
+                "assets/eatelo_logo.png",
+                height: 50,
+              ),
+              // Sign Up Card
+
+              const SizedBox(height: 20,),
+
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: AppColors.primaryGradient,
                   ),
+                  borderRadius: BorderRadius.circular(50),
                 ),
-
-                // Sign Up Card
-                Container(
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [
-                        Color(0xFF990000), // Start gradient (Red)
-                        Color(0xFF330000), // End gradient (Dark Red)
-                      ],
+                child: Column(
+                  children: [
+                    const Text(
+                      "Sign Up",
+                      style: TextStyle(
+                        fontFamily: AppFonts.primaryFont,
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: AppColors.background,
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(50),
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Sign Up",
+                    const SizedBox(height: 20),
+
+                    // Input Fields
+                    _buildInputField("Username", usernameController),
+                    const SizedBox(height: 10),
+                    _buildInputField("Email", emailController),
+                    const SizedBox(height: 10 ),
+                    _buildInputField("Password", passwordController, isPassword: true),
+                    const SizedBox(height: 10),
+                    _buildInputField("Confirm Password", confirmPasswordController, isPassword: true),
+                    const SizedBox(height: 20),
+
+                    // Sign Up Button
+                    ElevatedButton(
+                      onPressed: () {
+                        // Navigate to preferences page
+                        if (usernameController.text.isEmpty) {_showErrorDialog(context, "empty username"); return;}
+                        if (passwordController.text.isEmpty) {_showErrorDialog(context, "empty password"); return;}
+                        if (confirmPasswordController.text.isEmpty) {_showErrorDialog(context, "empty confirmPassword"); return;}
+                        if (passwordController.text != confirmPasswordController.text) {_showErrorDialog(context, "erroneuous match"); return;}
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => PreferencesPage(username: usernameController.text, email: emailController.text, password: passwordController.text)),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 50),
+                      ),
+                      child: const Text(
+                        "Sign up",
                         style: TextStyle(
-                          fontFamily: "RedHatDisplay",
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFFFEFD5),
+                          fontFamily: AppFonts.primaryFont,
+                          fontSize: 18,
+                          color: AppColors.background,
                         ),
                       ),
-                      SizedBox(height: 20),
+                    ),
 
-                      // Input Fields
-                      _buildInputField("Username"),
-                      SizedBox(height: 10),
-                      _buildInputField("Email"),
-                      SizedBox(height: 10),
-                      _buildInputField("Password", isPassword: true),
-                      SizedBox(height: 10),
-                      _buildInputField("Confirm Password", isPassword: true),
-                      SizedBox(height: 20),
+                    const SizedBox(height: 10),
 
-                      // Sign Up Button
-                      ElevatedButton(
-                        onPressed: () {
-                          // Navigate to preferences page
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const PreferencesPage()),
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFF990000),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 50),
-                        ),
-                        child: Text(
-                          "Sign up",
-                          style: TextStyle(
-                            fontFamily: "RedHatDisplay",
-                            fontSize: 18,
-                            color: Color(0xFFFFEFD5),
-                          ),
-                        ),
-                      ),
-
-                      SizedBox(height: 10),
-
-                      // Divider with OR
-                      Row(
-                        children: [
-                          Expanded(child: Divider(color: Color(0xFFFFEFD5))),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              "OR",
-                              style: TextStyle(
-                                fontFamily: "RedHatDisplay",
-                                color: Color(0xFFFFEFD5),
-                                fontWeight: FontWeight.bold,
-                              ),
+                    // Divider with OR
+                    const Row(
+                      children: [
+                        Expanded(child: Divider(color: AppColors.background)),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: Text(
+                            "OR",
+                            style: TextStyle(
+                              fontFamily: AppFonts.primaryFont,
+                              color: AppColors.background,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Expanded(child: Divider(color: Color(0xFFFFEFD5))),
-                        ],
-                      ),
+                        ),
+                        Expanded(child: Divider(color: AppColors.background)),
+                      ],
+                    ),
 
-                      SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
-                      // Social Login Buttons (Google, Instagram)
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          _buildSocialButton("assets/google_logo.png"),  // ✅ Google
-                          SizedBox(width: 20),
-                          _buildSocialButton("assets/instagram_logo.png"), // ✅ Instagram
-                        ],
-                      ),
+                    // Social Login Buttons (Google, Instagram)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        _buildSocialButton("assets/google_logo.png"),  // ✅ Google
+                        const SizedBox(width: 20),
+                        _buildSocialButton("assets/instagram_logo.png"), // ✅ Instagram
+                      ],
+                    ),
 
-                      SizedBox(height: 10),
+                    const SizedBox(height: 10),
 
-                      // Navigate to Login
-                      TextButton(
-                        onPressed: () => Navigator.pushNamed(context, '/login'),
-                        child: Text(
-                          "Already have an account? Sign In",
-                          style: TextStyle(
-                            fontFamily: "RedHatDisplay",
-                            color: Color(0xFFFFEFD5),
-                            fontSize: 13,
-                            fontWeight: FontWeight.normal,
-                          ),
+                    // Navigate to Login
+                    TextButton(
+                      onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                      },
+                      child: const Text(
+                        "Already have an account? Sign In",
+                        style: TextStyle(
+                          fontFamily: AppFonts.primaryFont,
+                          color: AppColors.background,
+                          fontSize: 18,
+                          fontWeight: FontWeight.normal,
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
@@ -153,17 +164,18 @@ class SignUpPage extends StatelessWidget {
   }
 
   // Input Field Widget
-  Widget _buildInputField(String hint, {bool isPassword = false}) {
+  Widget _buildInputField(String hint, TextEditingController controller, {bool isPassword = false}) {
     return TextField(
       obscureText: isPassword,
+      controller: controller,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color(0xFFFCECDD),
+        fillColor: AppColors.background,
         hintText: hint,
-        hintStyle: TextStyle(
-          fontFamily: "RedHatDisplay",
-          fontSize: 14,
-          color: Colors.black54,
+        hintStyle: const TextStyle(
+          fontFamily: AppFonts.primaryFont,
+          fontSize: 18,
+          color: Colors.black,
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -176,12 +188,28 @@ class SignUpPage extends StatelessWidget {
   // Social Button Widget
   Widget _buildSocialButton(String assetPath) {
     return Container(
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.white,
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(
+        color: AppColors.background,
         shape: BoxShape.circle,
       ),
-      child: Image.asset(assetPath, height: 24), // Ensure the asset exists
+      child: Image.asset(assetPath, height: 24), 
     );
   }
+
+  void _showErrorDialog(BuildContext context, String message) {
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text('Error'),
+      content: Text(message),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: const Text('OK'),
+        ),
+      ],
+    ),
+  );
+}
 }
