@@ -93,7 +93,10 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                     ],
                   ),
                 ),
-                // Dining Style Card
+                
+                
+                // Dining Style Card (dont think this is necessary for now)
+                /* 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: _buildPreferenceCard(
@@ -111,7 +114,10 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                     ],
                   ),
                 ),
-                // Review Style Card
+                */
+                
+
+                /*  // Review Style Card (dont think this is necessary for now)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: _buildPreferenceCard(
@@ -128,6 +134,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                     ],
                   ),
                 ),
+                */
               ],
             ),
           ),
