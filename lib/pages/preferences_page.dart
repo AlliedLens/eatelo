@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'profile_page.dart';
+import 'package:eatelo/components/buttons.dart';
+import 'package:eatelo/components/dialogs.dart';
+import 'package:eatelo/constants/app_colors.dart';
+// import 'profile_page.dart'; will implement backend of profile page later
+import 'personalisation_page.dart';
 
 class PreferencesPage extends StatefulWidget {
   final String username='';
@@ -18,7 +22,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFEFD5), // Beige background color
+      backgroundColor: AppColors.background, // Beige background color
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -98,7 +102,7 @@ class _PreferencesPageState extends State<PreferencesPage> {
                   onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ProfilePage(),),);
+                    MaterialPageRoute(builder: (context) => const PersonalisationPage(),),);
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
@@ -116,12 +120,12 @@ class _PreferencesPageState extends State<PreferencesPage> {
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFFFFEFD5),
+                          color: AppColors.background,
                           fontFamily: "RedHatDisplay",
                         ),
                       ),
                       SizedBox(width: 4),
-                      Icon(Icons.arrow_forward, color: Color(0xFFFFEFD5), size: 16),
+                      Icon(Icons.arrow_forward, color: AppColors.background, size: 16),
                     ],
                   ),
                 ),
@@ -143,20 +147,20 @@ class _PreferencesPageState extends State<PreferencesPage> {
           if (isSelected) {
             _selectedPreferences.remove(label);
           } else {
-            if (_selectedPreferences.length >= 3) return;
+            if (_selectedPreferences.length >= 3) {showErrorDialog(context, "not more than 3 preferences please"); return;}
             _selectedPreferences.add(label);
           }
         });
       },
       style: ElevatedButton.styleFrom(
-        backgroundColor: isSelected ? const Color(0xFF990000) : Color(0xFFFFEFD5), // Red if selected, white if not
-        foregroundColor: isSelected ? Color(0xFFFFEFD5): Colors.black, // Text color based on selection
+        backgroundColor: isSelected ?  AppColors.primary : AppColors.background, // Red if selected, white if not
+        foregroundColor: isSelected ? AppColors.background: Colors.black, // Text color based on selection
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0), // Increased padding for bigger size
         elevation: 2, // No shadow
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8), // More rounded corners
           side: BorderSide(
-            color: isSelected ? const Color(0xFF990000) : Colors.black.withOpacity(0.8),
+            color: isSelected ? AppColors.primary : Colors.black.withOpacity(0.8),
             width: 1.5,
           ),
         ),
@@ -172,14 +176,13 @@ class _PreferencesPageState extends State<PreferencesPage> {
     );
   }
   
-  // Helper method to create page indicator dots
   Widget _buildPageIndicator({required bool isActive}) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 4),
       height: 8,
       width: 8,
       decoration: BoxDecoration(
-        color: isActive ? const Color(0xFF990000) : Colors.grey.withOpacity(0.4),
+        color: isActive ?  AppColors.primary : Colors.grey.withOpacity(0.4),
         shape: BoxShape.circle,
       ),
     );

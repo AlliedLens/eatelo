@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'get_started.dart';
-import 'login_page.dart';
-import 'signup_page.dart';
+import 'package:eatelo/pages/get_started.dart';
+import 'package:eatelo/pages/login_page.dart';
+import 'package:eatelo/pages/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'firebase_options.dart';
+import '../firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async{
@@ -16,8 +16,6 @@ void main() async{
 }
 
 class EateloApp extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     
@@ -40,7 +38,7 @@ class EateloApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => GetStartedPage(),
+        '/': (context) =>  GetStartedPage(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
       },

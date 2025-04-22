@@ -1,11 +1,12 @@
 import 'package:eatelo/components/inputs.dart';
-import 'package:eatelo/pages/loginPage.dart';
+import 'package:eatelo/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'preferences_page.dart';
-import 'constants/app_colors.dart';
-import 'constants/app_fonts.dart';
-import 'components/dialogs.dart';
-import 'components/buttons.dart';
+import 'package:eatelo/constants/app_fonts.dart';
+import 'package:eatelo/constants/app_colors.dart';
+import 'package:eatelo/components/dialogs.dart';
+import 'package:eatelo/components/inputs.dart';
+import 'package:eatelo/components/buttons.dart';
 
 
 class SignUpPage extends StatefulWidget{
@@ -133,9 +134,9 @@ class _SignUpPage extends State<SignUpPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SocialButton("assets/google_logo.png"),  // ✅ Google
+                        socialButton("assets/google_logo.png"),  // ✅ Google
                         const SizedBox(width: 20),
-                        SocialButton("assets/instagram_logo.png"), // ✅ Instagram
+                        socialButton("assets/instagram_logo.png"), // ✅ Instagram
                       ],
                     ),
 
@@ -144,7 +145,7 @@ class _SignUpPage extends State<SignUpPage> {
                     // Navigate to Login
                     TextButton(
                       onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
                       },
                       child: const Text(
                         "Already have an account? Sign In",

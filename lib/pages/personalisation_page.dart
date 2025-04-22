@@ -9,12 +9,10 @@ class PersonalisationPage extends StatefulWidget {
 }
 
 class _PersonalisationPageState extends State<PersonalisationPage> {
-  // Track selected preferences for dietary, dining style, and review style
   String? _selectedDietaryPreference;
   String? _selectedDiningStyle;
   String? _selectedReviewStyle;
-  
-  // Add PageController
+
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -55,9 +53,9 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: const Center(
+          const Padding(
+            padding:  EdgeInsets.all(16.0),
+            child:Center(
               child: Text(
                 'Personalise Your Profile',
                 style: TextStyle(
