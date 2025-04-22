@@ -1,0 +1,5 @@
+#HELLO
+GET http://localhost:5000/test/helloworld
+
+###GET ALL USERS
+GET http://localhost:5000/users/get

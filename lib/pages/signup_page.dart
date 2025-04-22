@@ -5,7 +5,6 @@ import 'preferences_page.dart';
 import 'package:eatelo/constants/app_fonts.dart';
 import 'package:eatelo/constants/app_colors.dart';
 import 'package:eatelo/components/dialogs.dart';
-import 'package:eatelo/components/inputs.dart';
 import 'package:eatelo/components/buttons.dart';
 
 

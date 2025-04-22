@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../constants/app_colors.dart';
-import '../constants/app_fonts.dart';
 
 void showErrorDialog(BuildContext context, String message) {
 showDialog(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:eatelo/components/buttons.dart';
 import 'package:eatelo/components/dialogs.dart';
 import 'package:eatelo/constants/app_colors.dart';
 // import 'profile_page.dart'; will implement backend of profile page later

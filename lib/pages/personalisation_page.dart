@@ -1,7 +1,6 @@
 import 'package:eatelo/components/dialogs.dart';
-import 'package:eatelo/login_page.dart';
+import 'package:eatelo/pages/login_page.dart';
 import 'package:flutter/material.dart';
-import 'ranking_page.dart';
 
 class PersonalisationPage extends StatefulWidget {
   const PersonalisationPage({super.key});
