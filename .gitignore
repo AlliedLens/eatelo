@@ -21,6 +21,8 @@ ios/Runner/GeneratedPluginRegistrant.*
 ios/Pods/
 ios/Podfile.lock
 
+node_modules/
+
 # Android
 .android/
 *.iml
