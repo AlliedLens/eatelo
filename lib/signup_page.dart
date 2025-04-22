@@ -1,8 +1,11 @@
+import 'package:eatelo/components/inputs.dart';
 import 'package:eatelo/pages/loginPage.dart';
 import 'package:flutter/material.dart';
 import 'preferences_page.dart';
 import 'constants/app_colors.dart';
 import 'constants/app_fonts.dart';
+import 'components/dialogs.dart';
+import 'components/buttons.dart';
 
 
 class SignUpPage extends StatefulWidget{
@@ -63,23 +66,23 @@ class _SignUpPage extends State<SignUpPage> {
                     const SizedBox(height: 20),
 
                     // Input Fields
-                    _buildInputField("Username", usernameController),
+                    InputField("Username", usernameController),
                     const SizedBox(height: 10),
-                    _buildInputField("Email", emailController),
+                    InputField("Email", emailController),
                     const SizedBox(height: 10 ),
-                    _buildInputField("Password", passwordController, isPassword: true),
+                    InputField("Password", passwordController, isPassword: true),
                     const SizedBox(height: 10),
-                    _buildInputField("Confirm Password", confirmPasswordController, isPassword: true),
+                    InputField("Confirm Password", confirmPasswordController, isPassword: true),
                     const SizedBox(height: 20),
 
                     // Sign Up Button
                     ElevatedButton(
                       onPressed: () {
                         // Navigate to preferences page
-                        if (usernameController.text.isEmpty) {_showErrorDialog(context, "empty username"); return;}
-                        if (passwordController.text.isEmpty) {_showErrorDialog(context, "empty password"); return;}
-                        if (confirmPasswordController.text.isEmpty) {_showErrorDialog(context, "empty confirmPassword"); return;}
-                        if (passwordController.text != confirmPasswordController.text) {_showErrorDialog(context, "erroneuous match"); return;}
+                        if (usernameController.text.isEmpty) {showErrorDialog(context, "empty username"); return;}
+                        if (passwordController.text.isEmpty) {showErrorDialog(context, "empty password"); return;}
+                        if (confirmPasswordController.text.isEmpty) {showErrorDialog(context, "empty confirmPassword"); return;}
+                        if (passwordController.text != confirmPasswordController.text) {showErrorDialog(context, "erroneuous match"); return;}
 
                         Navigator.push(
                           context,
@@ -130,9 +133,9 @@ class _SignUpPage extends State<SignUpPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _buildSocialButton("assets/google_logo.png"),  // ✅ Google
+                        SocialButton("assets/google_logo.png"),  // ✅ Google
                         const SizedBox(width: 20),
-                        _buildSocialButton("assets/instagram_logo.png"), // ✅ Instagram
+                        SocialButton("assets/instagram_logo.png"), // ✅ Instagram
                       ],
                     ),
 
@@ -162,54 +165,5 @@ class _SignUpPage extends State<SignUpPage> {
       ),
     );
   }
-
-  // Input Field Widget
-  Widget _buildInputField(String hint, TextEditingController controller, {bool isPassword = false}) {
-    return TextField(
-      obscureText: isPassword,
-      controller: controller,
-      decoration: InputDecoration(
-        filled: true,
-        fillColor: AppColors.background,
-        hintText: hint,
-        hintStyle: const TextStyle(
-          fontFamily: AppFonts.primaryFont,
-          fontSize: 18,
-          color: Colors.black,
-        ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-          borderSide: BorderSide.none,
-        ),
-      ),
-    );
-  }
-
-  // Social Button Widget
-  Widget _buildSocialButton(String assetPath) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: const BoxDecoration(
-        color: AppColors.background,
-        shape: BoxShape.circle,
-      ),
-      child: Image.asset(assetPath, height: 24), 
-    );
-  }
-
-  void _showErrorDialog(BuildContext context, String message) {
-  showDialog(
-    context: context,
-    builder: (context) => AlertDialog(
-      title: const Text('Error'),
-      content: Text(message),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: const Text('OK'),
-        ),
-      ],
-    ),
-  );
 }
-}
+

@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+import '../constants/app_colors.dart';
+import '../constants/app_fonts.dart';
+
+
+
+  // Social Button Widget
+  Widget SocialButton(String assetPath) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(
+        color: AppColors.background,
+        shape: BoxShape.circle,
+      ),
+      child: Image.asset(assetPath, height: 24), 
+    );
+  }
