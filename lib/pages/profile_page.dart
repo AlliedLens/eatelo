@@ -2,6 +2,12 @@
 import 'package:flutter/material.dart';
 import 'personalisation_page.dart';
 
+/*
+
+HAVENT IMPLEMENTED THIS PAGE YET.
+
+ */
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 

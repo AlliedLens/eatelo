@@ -1,3 +1,5 @@
+import 'package:eatelo/components/dialogs.dart';
+import 'package:eatelo/login_page.dart';
 import 'package:flutter/material.dart';
 import 'ranking_page.dart';
 
@@ -167,16 +169,30 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                     child: ElevatedButton(
                       onPressed: () {
                         if (_currentPage < 2) {
-                          // Move to next page with animation
-                          _pageController.nextPage(
-                            duration: const Duration(milliseconds: 300),
-                            curve: Curves.easeInOut,
+                          /* 
+
+                            HAVING ONLY ONE OF THESE PAGES FOR NOW                          
+                            // Move to next page with animation
+                            _pageController.nextPage(
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          
+                          
+                          */
+                          showErrorDialog(context, "user should be signed in, make an account now");
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => LoginPage()),
                           );
+
                         } else {
+                          showErrorDialog(context, "user should be signed in, make an account now");
                           // On last page, navigate to ranking page
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const RankingPage()),
+                            MaterialPageRoute(builder: (context) => LoginPage()),
                           );
                         }
                       },

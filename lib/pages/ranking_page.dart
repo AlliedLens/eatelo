@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+
+/*
+
+HAVENT IMPLEMENTED THIS PAGE YET
+
+*/ 
+
 class RankingPage extends StatefulWidget {
   const RankingPage({super.key});
 
