@@ -5,11 +5,15 @@ import 'package:eatelo/constants/app_colors.dart';
 import 'personalisation_page.dart';
 
 class PreferencesPage extends StatefulWidget {
-  final String username='';
-  final String email='';
-  final String password='';
+  final String username;
+  final String email;
 
-  const PreferencesPage({super.key, String username='', String email='', String password=''});
+
+  const PreferencesPage({
+    super.key, 
+    required this.username,
+    required this.email,
+  });
 
   @override
   State<PreferencesPage> createState() => _PreferencesPageState();
@@ -101,7 +105,11 @@ class _PreferencesPageState extends State<PreferencesPage> {
                   onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PersonalisationPage(),),);
+                    MaterialPageRoute(builder: (context) => PersonalisationPage(
+                      username: widget.username,
+                      email: widget.email,
+                      selectedPreferences: _selectedPreferences.toList(),
+                    ),),);
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),

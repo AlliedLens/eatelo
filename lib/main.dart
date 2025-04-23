@@ -5,8 +5,15 @@ import 'package:eatelo/pages/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:flutter/foundation.dart';
 
 void main() async{
+
+  await dotenv.load(
+    fileName: kIsWeb ? "dotenv.Develop" : "dotenv.Develop"
+  );
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

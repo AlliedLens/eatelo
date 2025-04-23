@@ -86,7 +86,7 @@ class _SignUpPage extends State<SignUpPage> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => PreferencesPage(username: usernameController.text, email: emailController.text, password: passwordController.text)),
+                          MaterialPageRoute(builder: (context) => PreferencesPage(username: usernameController.text, email: emailController.text)),
                         );
                       },
                       style: ElevatedButton.styleFrom(

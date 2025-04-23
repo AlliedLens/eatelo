@@ -6,7 +6,7 @@ import 'personalisation_page.dart';
 
 HAVENT IMPLEMENTED THIS PAGE YET.
 
- */
+*/
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -37,8 +37,8 @@ class _ProfilePageState extends State<ProfilePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Center(
-              child: const Text(
+            const Center(
+              child: Text(
                 'Profile',
                 style: TextStyle(
                   fontSize: 34,
@@ -74,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   controller: _nameController,
                   decoration: InputDecoration(
                     labelText: 'Name',
-                    labelStyle: TextStyle(fontFamily: "RedHatDisplay",fontWeight: FontWeight.w600),
+                    labelStyle: const TextStyle(fontFamily: "RedHatDisplay",fontWeight: FontWeight.w600),
                     filled: true,
         
                     fillColor: Color(0xFFFFEFD5),
@@ -94,7 +94,7 @@ class _ProfilePageState extends State<ProfilePage> {
               decoration: InputDecoration(
                 
                 hintText: 'Write about your favourite dish',
-                hintStyle: TextStyle(fontFamily: "RedHatDisplay", fontWeight: FontWeight.w500),
+                hintStyle: const TextStyle(fontFamily: "RedHatDisplay", fontWeight: FontWeight.w500),
                 filled: true,
                 fillColor: Colors.white, // Change background color to white
                 border: OutlineInputBorder(
@@ -131,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPressed: () {
                    Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const PersonalisationPage(),),);
+                    MaterialPageRoute(builder: (context) => const PersonalisationPage(username: '',email: '',),),);
                   },
                   style: ElevatedButton.styleFrom(
                     padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),

@@ -1,9 +1,25 @@
 import 'package:eatelo/components/dialogs.dart';
 import 'package:eatelo/pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:eatelo/api/user_api.dart';
+import 'package:eatelo/models/user_model.dart';
 
 class PersonalisationPage extends StatefulWidget {
-  const PersonalisationPage({super.key});
+
+  final String username;
+  final String email;
+  final List<String>? selectedPreferences;
+  final Map<String,int>? rankings;
+
+
+  const PersonalisationPage({
+    super.key,
+    required this.username,
+    required this.email,
+    this.selectedPreferences = const [],
+    this.rankings = const {},
+  });
+
 
   @override
   _PersonalisationPageState createState() => _PersonalisationPageState();
@@ -167,6 +183,9 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
+
+
+
                         if (_currentPage < 2) {
                           /* 
 
