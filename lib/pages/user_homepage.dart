@@ -91,35 +91,6 @@ class _UserHomePageState extends State<UserHomePage> {
   Widget _buildHomeContent() {
     return Column(
       children: [
-        // Top Bar
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Row(
-            children: [
-              const Text(
-                'Home',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "RedHatDisplay",
-                ),
-              ),
-              const Spacer(),
-              const Text(
-                '12:30',
-                style: TextStyle(
-                  fontSize: 16,
-                  fontFamily: "RedHatDisplay",
-                ),
-              ),
-              const SizedBox(width: 8),
-              const Icon(Icons.wifi, size: 16),
-              const SizedBox(width: 4),
-              const Icon(Icons.battery_full, size: 16),
-            ],
-          ),
-        ),
-        
         // Logo and Message Icon
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -147,6 +118,7 @@ class _UserHomePageState extends State<UserHomePage> {
                 1,
                 'Al Fahm at Hadiqa is an absolute delight! Crispy on the outside, perfectly juicy inside, and seasoned just right. Every bite is packed with flavor, and the tangy dip takes it to the next level. Can\'t wait to have it again!',
                 hasShare: true,
+                imagePath: 'assets/hadiqa.jpg',
               ),
               const SizedBox(height: 16),
               _buildFoodCard(
@@ -173,7 +145,7 @@ class _UserHomePageState extends State<UserHomePage> {
     );
   }
 
-  Widget _buildFoodCard(int cardIndex, String restaurantName, String username, int ranking, String description, {bool hasShare = false}) {
+  Widget _buildFoodCard(int cardIndex, String restaurantName, String username, int ranking, String description, {bool hasShare = false, String? imagePath}) {
     bool isLiked = _likedCards[cardIndex] ?? false;
     int commentCount = _commentCounts[cardIndex] ?? 0;
     
@@ -196,10 +168,31 @@ class _UserHomePageState extends State<UserHomePage> {
                     topLeft: Radius.circular(12),
                     topRight: Radius.circular(12),
                   ),
-                  color: Colors.grey[300],
                 ),
-                child: const Center(
-                  child: Icon(Icons.restaurant, size: 50, color: Colors.grey),
+                child: ClipRRect(
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    topRight: Radius.circular(12),
+                  ),
+                  child: imagePath != null
+                      ? Image.asset(
+                          imagePath,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              color: Colors.grey[300],
+                              child: const Center(
+                                child: Icon(Icons.restaurant, size: 50, color: Colors.grey),
+                              ),
+                            );
+                          },
+                        )
+                      : Container(
+                          color: Colors.grey[300],
+                          child: const Center(
+                            child: Icon(Icons.restaurant, size: 50, color: Colors.grey),
+                          ),
+                        ),
                 ),
               ),
               // Username overlay at top

@@ -41,6 +41,12 @@ flutter:
     - assets/eatelo_logo.png
     - assets/trophy.png
     - dotenv.Develop
+    - assets/hadiqa.jpg
+    - assets/images/
+    - assets/images/food/
+    - assets/images/restaurants/
+    - assets/images/profiles/
+    - assets/images/icons/
 
 
   # Font configuration for "Red Hat Display"

@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:eatelo/pages/restaurant_detail_page.dart';
+import 'package:eatelo/pages/new_review_page.dart';
+import 'package:eatelo/pages/my_reviews_page.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -14,30 +16,23 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFFEFD5),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const NewReviewPage(),
+            ),
+          );
+        },
+        backgroundColor: const Color(0xFF990000),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
+      ),
       body: Column(
         children: [
-          // Top Bar
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                const Text(
-                  '12:30',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: "RedHatDisplay",
-                  ),
-                ),
-                const Spacer(),
-                const Icon(Icons.signal_cellular_4_bar, size: 16),
-                const SizedBox(width: 4),
-                const Icon(Icons.wifi, size: 16),
-                const SizedBox(width: 4),
-                const Icon(Icons.battery_full, size: 16),
-              ],
-            ),
-          ),
-          
           // Logo and Icons
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -409,21 +404,31 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         
         const SizedBox(height: 8),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'More',
-              style: TextStyle(
-                color: Color(0xFF990000),
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                fontFamily: "RedHatDisplay",
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MyReviewsPage(),
               ),
-            ),
-            const SizedBox(width: 4),
-            const Icon(Icons.keyboard_arrow_down, color: Color(0xFF990000)),
-          ],
+            );
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'More',
+                style: TextStyle(
+                  color: Color(0xFF990000),
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "RedHatDisplay",
+                ),
+              ),
+              const SizedBox(width: 4),
+              const Icon(Icons.keyboard_arrow_down, color: Color(0xFF990000)),
+            ],
+          ),
         ),
       ],
     );

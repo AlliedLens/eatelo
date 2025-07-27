@@ -5,6 +5,8 @@ import 'package:eatelo/pages/signup_page.dart';
 import 'package:eatelo/pages/preferences_page.dart';
 import 'package:eatelo/pages/personalisation_page.dart';
 import 'package:eatelo/pages/ranking_page.dart';
+import 'package:eatelo/pages/new_review_page.dart';
+import 'package:eatelo/pages/my_reviews_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/foundation.dart';
 
@@ -33,6 +35,8 @@ class EateloApp extends StatelessWidget {
         '/preferences': (context) => PreferencesPage(username: '', email: ''),
         '/personalisation': (context) => PersonalisationPage(username: '', email: '', selectedPreferences: []),
         '/ranking': (context) => RankingPage(),
+        '/new-review': (context) => NewReviewPage(),
+        '/my-reviews': (context) => MyReviewsPage(),
       },
     );
   }
