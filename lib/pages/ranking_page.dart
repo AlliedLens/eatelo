@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'user_homepage.dart';
 
 
 /*
@@ -49,7 +50,7 @@ class _RankingPageState extends State<RankingPage> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 3,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -233,6 +234,59 @@ class _RankingPageState extends State<RankingPage> {
                   const SizedBox(width: 8),
                   _buildPageIndicator(isActive: true),
                 ],
+              ),
+            ),
+            // Next button
+            Padding(
+              padding: const EdgeInsets.only(right: 24.0, bottom: 24.0),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF990000), Color(0xFF4B2E19)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserHomePage(
+                            topRestaurants: restaurants,
+                          ),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+                      backgroundColor: Colors.transparent,
+                      shadowColor: Colors.transparent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: const Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          'Next',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFFFEFD5),
+                            fontFamily: "RedHatDisplay",
+                          ),
+                        ),
+                        SizedBox(width: 4),
+                        Icon(Icons.arrow_forward, color: Color(0xFFFFEFD5), size: 16),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ),
           ],
