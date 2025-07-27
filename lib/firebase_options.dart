@@ -29,10 +29,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.windows:
         return windows;
       case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return linux;
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
@@ -77,6 +74,16 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCWfSNyaoJgmzQwycCDML1a_pg8Rvp0JDY',
+    appId: '1:1031824783350:web:d2d8ecb21d7c95cd6439d7',
+    messagingSenderId: '1031824783350',
+    projectId: 'eatelo-auth',
+    authDomain: 'eatelo-auth.firebaseapp.com',
+    storageBucket: 'eatelo-auth.firebasestorage.app',
+    measurementId: 'G-5SM2Y316Q8',
+  );
+
+  static const FirebaseOptions linux = FirebaseOptions(
     apiKey: 'AIzaSyCWfSNyaoJgmzQwycCDML1a_pg8Rvp0JDY',
     appId: '1:1031824783350:web:d2d8ecb21d7c95cd6439d7',
     messagingSenderId: '1031824783350',

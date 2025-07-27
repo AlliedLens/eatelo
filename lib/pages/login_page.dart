@@ -75,7 +75,7 @@ class LoginPage extends StatelessWidget {
 
                       // Sign In Button
                       ElevatedButton(
-                        onPressed: () => Navigator.pushNamed(context, '/home'),
+                        onPressed: () => Navigator.pushNamed(context, '/preferences'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFFFEFD5),
                           shape: RoundedRectangleBorder(

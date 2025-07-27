@@ -1,12 +1,5 @@
 import 'package:flutter/material.dart';
-import 'user_homepage.dart';
-
-
-/*
-
-HAVENT IMPLEMENTED THIS PAGE YET
-
-*/ 
+import 'package:eatelo/pages/user_homepage.dart';
 
 class RankingPage extends StatefulWidget {
   const RankingPage({super.key});

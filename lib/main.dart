@@ -2,22 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:eatelo/pages/get_started.dart';
 import 'package:eatelo/pages/login_page.dart';
 import 'package:eatelo/pages/signup_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import '../firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:eatelo/pages/preferences_page.dart';
+import 'package:eatelo/pages/personalisation_page.dart';
+import 'package:eatelo/pages/ranking_page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/foundation.dart';
 
 void main() async{
-
   await dotenv.load(
     fileName: kIsWeb ? "dotenv.Develop" : "dotenv.Develop"
   );
-
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  await FirebaseAuth.instance.setPersistence(Persistence.NONE);
 
   runApp(EateloApp());
 }
@@ -25,18 +19,6 @@ void main() async{
 class EateloApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
-
-    FirebaseAuth.instance
-      .authStateChanges()
-      .listen((User? user) {
-        if (user == null) {
-          print('User is currently signed out!');
-        } else {
-          print('User is signed in!');
-        }
-      });
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Eatelo',
@@ -48,7 +30,19 @@ class EateloApp extends StatelessWidget {
         '/': (context) =>  GetStartedPage(),
         '/login': (context) => LoginPage(),
         '/signup': (context) => SignUpPage(),
+        '/preferences': (context) => PreferencesPage(username: '', email: ''),
+        '/personalisation': (context) => PersonalisationPage(username: '', email: '', selectedPreferences: []),
+        '/ranking': (context) => RankingPage(),
       },
     );
   }
 }
+
+/*
+  first present problem statement
+  why u need it
+  what solutions you considered 
+
+  10 mins presentation 5 mins q/a
+
+*/

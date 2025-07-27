@@ -3,6 +3,7 @@ import 'package:eatelo/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:eatelo/api/user_api.dart';
 import 'package:eatelo/models/user_model.dart';
+import 'package:eatelo/pages/ranking_page.dart';
 
 class PersonalisationPage extends StatefulWidget {
 
@@ -111,9 +112,7 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                   ),
                 ),
                 
-                
-                // Dining Style Card (dont think this is necessary for now)
-                /* 
+                // Dining Style Card
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: _buildPreferenceCard(
@@ -127,14 +126,11 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                       _buildChoiceButton('Fine Dining Enthusiast', _selectedDiningStyle),
                       _buildChoiceButton('Coffee Over Everything', _selectedDiningStyle),
                       _buildChoiceButton('Wine & Dine Fan', _selectedDiningStyle),
-                    
                     ],
                   ),
                 ),
-                */
-                
 
-                /*  // Review Style Card (dont think this is necessary for now)
+                // Review Style Card
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: _buildPreferenceCard(
@@ -147,11 +143,9 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                       _buildChoiceButton('Casual Reviewer', _selectedReviewStyle),
                       _buildChoiceButton('Loyal Customer', _selectedReviewStyle),
                       _buildChoiceButton('Video Reviewer', _selectedReviewStyle),
-                    
                     ],
                   ),
                 ),
-                */
               ],
             ),
           ),
@@ -183,34 +177,15 @@ class _PersonalisationPageState extends State<PersonalisationPage> {
                     ),
                     child: ElevatedButton(
                       onPressed: () {
-
-
-
                         if (_currentPage < 2) {
-                          /* 
-
-                            HAVING ONLY ONE OF THESE PAGES FOR NOW                          
-                            // Move to next page with animation
-                            _pageController.nextPage(
-                              duration: const Duration(milliseconds: 300),
-                              curve: Curves.easeInOut,
-                            );
-                          
-                          
-                          */
-                          showErrorDialog(context, "user should be signed in, make an account now");
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => LoginPage()),
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
                           );
-
                         } else {
-                          showErrorDialog(context, "user should be signed in, make an account now");
-                          // On last page, navigate to ranking page
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => LoginPage()),
+                            MaterialPageRoute(builder: (context) => RankingPage()),
                           );
                         }
                       },
